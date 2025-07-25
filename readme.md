@@ -124,7 +124,7 @@ Collect the following fields from the user:
 
 #### Step 3: Review
 
-- Submit the collected report to a **review group chat** (configurable via `src\configs\config.ts`)
+- Submit the collected report to a **review group chat**
 - Mod team can either:
 
   - ✅ Accept the report → Automatically post to the **main public channel**
