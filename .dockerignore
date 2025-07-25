@@ -1,0 +1,8 @@
+# .dockerignore
+node_modules
+dist
+*.log
+.env
+.env.*
+session.txt
+export_*.csv

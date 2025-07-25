@@ -80,7 +80,7 @@ This bot uses a Python script (`utils/get_telegram_id.py`) as a fallback.
    - You will be prompted for your phone number and login code.
    - This creates `session.txt` for future automatic lookups.
 
-**Note:**  
+**Note:**
 
 - The bot will use this script automatically if it cannot resolve a username via the Bot API.
 
@@ -133,3 +133,17 @@ Collect the following fields from the user:
 #### Step 4: Logging
 
 - If accepted, store report details and any proof links in a **SQLite database**
+
+---
+
+### Docker usage
+
+Run these commands
+
+```bash
+docker build -t dwc-bot .
+docker run --env-file .env -d --name dwc-bot-container dwc-bot
+docker exec -it dwc-bot-container sh
+python utils/get_telegram_id.py ANYUSERNAME
+ - Follow questions you only have to do this once
+```
