@@ -146,4 +146,5 @@ docker run --env-file .env -d --name dwc-bot-container dwc-bot
 docker exec -it dwc-bot-container sh
 python utils/get_telegram_id.py ANYUSERNAME
  - Follow questions you only have to do this once
+exit
 ```
