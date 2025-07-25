@@ -96,7 +96,7 @@ async function postToMainChannel(report: any) {
   } else {
     scammerLink = `[${scammerUsername}](https://t.me/${scammerUsername.replace(/^@/, '')})`;
   }
-  const text = `⚠️ *Scammer Alert!*\n\n*Scammer:* ${scammerLink}\n*Amount Lost:* ${report.amount}\n*Description:*\n${report.description}\n*Proof:* ${report.proof_link}`;
+  const text = `🚨 *New Scam Report*\n\n*Scammer:* ${scammerLink}\n*Amount:* ${report.amount}\n*Description:*\n${report.description}\n*Proof:* ${report.proof_link}`;
   await bot.sendMessage(config.mainChannelId, text, { parse_mode: 'Markdown' });
 }
 
@@ -415,12 +415,12 @@ bot.on('message', async (msg) => {
   // Step 1: Get scammer username
   if (state.step === 1) {
     const scammer = msg.text.trim();
-    const scammerCheck = z.string().regex(telegramUsernameRegex, 'Invalid Telegram username format').safeParse(scammer);
+    const scammerCheck = z
+      .string()
+      .regex(telegramUsernameRegex, 'Invalid Telegram username format')
+      .safeParse(scammer);
     if (!scammerCheck.success) {
-      await bot.sendMessage(
-        chatId,
-        'Invalid Telegram username.'
-      );
+      await bot.sendMessage(chatId, 'Invalid Telegram username.');
       return;
     }
     state.data.scammer = scammer;
